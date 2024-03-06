@@ -3,9 +3,11 @@
 #include "MoveComponent.h"
 #include "Game.h"
 #include "Random.h"
+#include "CircleComponent.h"
 
 Asteroid::Asteroid(Game* game)
-	:mActor(game)
+	:Actor(game)
+	, mCircle(nullptr)
 {
 	// Initialize to random position/orientation
 	Vector2 randPos = Random::GetVector(Vector2::Zero,
@@ -21,6 +23,10 @@ Asteroid::Asteroid(Game* game)
 	// Create a move component, and set a forward speed
 	MoveComponent* mc = new MoveComponent(this);
 	mc->SetForwardSpeed(150.0f);
+
+	// Create a circleComponent (for collision)
+	mCircle = new CircleComponent(this);
+	mCircle->SetRadius(150.0f);
 
 	// Add to mAsteroids in game
 	game->AddAsteroid(this);

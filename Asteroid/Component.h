@@ -7,6 +7,8 @@
 // ----------------------------------------------------------------
 
 #pragma once
+#include <cstdint>
+
 class Component
 {
 public:

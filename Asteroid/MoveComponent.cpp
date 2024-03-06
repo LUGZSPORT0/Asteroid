@@ -1,5 +1,5 @@
 #include "MoveComponent.h"
-#include "Math.h"
+#include "Actor.h"
 
 MoveComponent::MoveComponent(class Actor* owner, int updateOrder)
 	:Component(owner, updateOrder)
@@ -19,7 +19,7 @@ void MoveComponent::Update(float deltaTime)
 	}
 	if (!Math::NearZero(mForwardSpeed))
 	{
-		Vector2 pos = mOwner->GetPostion();
+		Vector2 pos = mOwner->GetPosition();
 		pos += mOwner->GetForward() * mForwardSpeed * deltaTime;
 
 		// (Screen wrapping code only for asteroids)

@@ -2,7 +2,7 @@
 #include "MoveComponent.h"
 #include <cstdint>
 
-class InputComponent
+class InputComponent : public MoveComponent
 {
 public:
 	// Lower update order to update first
@@ -19,8 +19,8 @@ public:
 	int GetCounterClockwiseKey() { return mCounterClockwiseKey; }
 
 	void SetMaxForwardSpeed(float speed) { mMaxForwardSpeed = speed; }
-	void SetMaxAngualrSpeed(float speed) { mMaxAngularSpeed = speed; }
-	void SetForwardSpeed(int key) { mForwardKey = key; }
+	void SetMaxAngularSpeed(float speed) { mMaxAngularSpeed = speed; }
+	void SetForwardKey(int key) { mForwardKey = key; }
 	void SetBackKey(int key) { mBackKey = key; }
 	void SetClockwiseKey(int key) { mClockwiseKey = key; }
 	void SetCounterClockwiseKey(int key) { mCounterClockwiseKey = key; }

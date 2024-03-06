@@ -35,5 +35,5 @@ void InputComponent::ProcessInput(const uint8_t* keyState)
 	{
 		angularSpeed -= mMaxAngularSpeed;
 	}
-	SetAnglarSpeed(angularSpeed);
+	SetAngularSpeed(angularSpeed);
 }
