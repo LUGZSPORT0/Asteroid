@@ -51,7 +51,6 @@ void Ship::UpdateActor(float deltaTime)
 			break;
 		}
 	}
-
 }
 
 void Ship::ActorInput(const uint8_t* keyState)
