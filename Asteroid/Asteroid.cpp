@@ -26,7 +26,7 @@ Asteroid::Asteroid(Game* game)
 
 	// Create a circleComponent (for collision)
 	mCircle = new CircleComponent(this);
-	mCircle->SetRadius(150.0f);
+	mCircle->SetRadius(32.0f);
 
 	// Add to mAsteroids in game
 	game->AddAsteroid(this);

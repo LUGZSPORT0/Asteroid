@@ -19,7 +19,7 @@ Game::Game()
 	:mWindow(nullptr)
 	, mRenderer(nullptr)
 	, mIsRunning(true)
-	, mUpdatingActors(false)
+	, mUpdatingActors(false)	
 {
 
 }
@@ -134,9 +134,28 @@ void Game::UpdateGame()
 		if (actor->GetState() == Actor::EDead)
 		{
 			deadActors.emplace_back(actor);
+			if (actor == mShip)
+			{
+				respawnTime = 2.0f;
+				respawning = true;
+			}
 		}
 	}
 
+	if (respawning)
+	{
+		respawnTime -= deltaTime;
+		if (respawnTime <= 0.0f)
+		{
+			mShip = new Ship(this);
+			mShip->SetState(Actor::EActive);
+			mShip->SetPosition(Vector2(1024 / 2, 768 / 2));
+			mShip->SetRotation(0.0f);
+			mShip->SetScale(1.5f);
+			respawning = false;
+		}
+	}
+	
 	// Delete dead actors (which removes them from mActors)
 	for (auto actor : deadActors)
 	{

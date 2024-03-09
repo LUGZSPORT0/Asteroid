@@ -30,7 +30,6 @@ private:
 	void GenerateOutput();
 	void LoadData();
 	void UnloadData();
-
 	// Map of textures loaded
 	std::unordered_map<std::string, SDL_Texture*> mTextures;
 
@@ -48,7 +47,8 @@ private:
 	bool mIsRunning;
 	// Track if we're updating actors right now
 	bool mUpdatingActors;
-
+	float respawnTime;
+	bool respawning;
 	// Game-specific
 	class Ship* mShip; // Player's ship
 	std::vector<class Asteroid*> mAsteroids;
