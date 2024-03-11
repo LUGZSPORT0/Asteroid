@@ -17,6 +17,7 @@ public:
 	int GetBackKey() const { return mBackKey; }
 	int GetClockwiseKey() const { return mClockwiseKey; }
 	int GetCounterClockwiseKey() { return mCounterClockwiseKey; }
+	Vector2 GetForce() { return mForce; }
 
 	void SetMaxForwardSpeed(float speed) { mMaxForwardSpeed = speed; }
 	void SetMaxAngularSpeed(float speed) { mMaxAngularSpeed = speed; }
@@ -24,15 +25,24 @@ public:
 	void SetBackKey(int key) { mBackKey = key; }
 	void SetClockwiseKey(int key) { mClockwiseKey = key; }
 	void SetCounterClockwiseKey(int key) { mCounterClockwiseKey = key; }
+	void SetForce(Vector2 force) { mForce = force; }
+
+
 private:
 	// The maximum forward/angular speeds
 	float mMaxForwardSpeed;
 	float mMaxAngularSpeed;
+	bool isFMoving;
+	bool isBMoving;
 	// Keys for forward/back movement
 	int mForwardKey;
 	int mBackKey;
 	// Keys for angular movement
 	int mClockwiseKey;
 	int mCounterClockwiseKey;
+	// Key for impulse movement
+	int mImpulseKey;
+	Vector2 mForce;
+
 };
 

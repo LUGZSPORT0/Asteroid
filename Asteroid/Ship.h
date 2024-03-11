@@ -18,4 +18,7 @@ public:
 private:
 	float mLaserCooldown;
 	class CircleComponent* mCircle;
+	class InputComponent* ic;
+	class SpriteComponent* sc;
+	Vector2 force;
 };

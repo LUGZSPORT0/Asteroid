@@ -21,15 +21,25 @@ Asteroid::Asteroid(Game* game)
 	sc->SetTexture(game->GetTexture("Assets/Asteroid.png"));
 
 	// Create a move component, and set a forward speed
-	MoveComponent* mc = new MoveComponent(this);
-	mc->SetForwardSpeed(150.0f);
+	mc = new MoveComponent(this);
 
+	mc->SetMass(1000.0f);
+	mc->SetForwardSpeed(150.0f);
+	force.x = mc->GetMass() * mc->GetForwardSpeed();
+
+	mc->AddForces(force);
 	// Create a circleComponent (for collision)
 	mCircle = new CircleComponent(this);
 	mCircle->SetRadius(32.0f);
 
 	// Add to mAsteroids in game
 	game->AddAsteroid(this);
+}
+
+void Asteroid::UpdateActor(float deltaTime)
+{
+	force.x = mc->GetMass() * mc->GetForwardSpeed();
+	mc->AddForces(force);
 }
 
 Asteroid::~Asteroid()

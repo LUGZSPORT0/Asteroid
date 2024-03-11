@@ -184,12 +184,12 @@ void Game::LoadData()
 	mShip->SetPosition(Vector2(100.0f, 384.0f));
 	mShip->SetScale(1.5f);
 	
-	// Create asteroids
-	const int numAsteroids = 20; 
-	for (int i = 0; i < numAsteroids; i++)
-	{
-		new Asteroid(this);
-	}
+	//// Create asteroids
+	//const int numAsteroids = 20; 
+	//for (int i = 0; i < numAsteroids; i++)
+	//{
+	//	new Asteroid(this);
+	//}
 }
 
 void Game::UnloadData()
