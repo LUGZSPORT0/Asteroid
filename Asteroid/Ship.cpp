@@ -42,6 +42,10 @@ void Ship::UpdateActor(float deltaTime)
 	{
 		sc->SetTexture(GetGame()->GetTexture("Assets/ShipWithThrust.png"));
 	}
+	else if (ic->GetForce().x < 0.0f)
+	{
+		sc->SetTexture(GetGame()->GetTexture("Assets/ShipWithThrust.png"));
+	}
 	else
 	{
 		sc->SetTexture(GetGame()->GetTexture("Assets/Ship.png"));
